@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   LayoutDashboard,
   Ticket,
@@ -20,6 +20,7 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ open, setOpen }: SidebarProps) => {
+  const navigate = useNavigate();
   const [isCollapsed, setIsCollapsed] = useState(() => {
     if (typeof window !== "undefined") {
       return localStorage.getItem("sidebar-collapsed") === "true";
@@ -163,6 +164,7 @@ const Sidebar = ({ open, setOpen }: SidebarProps) => {
         <div className={`border-t border-gray-200 space-y-2 ${isCollapsed ? "p-2" : "p-4"}`}>
           <button
             title={isCollapsed ? "Sign Out" : undefined}
+            onClick={() => navigate("/login")}
             className={`w-full flex items-center text-gray-700 hover:bg-gray-50 rounded-lg transition-colors ${
               isCollapsed
                 ? "md:justify-center md:p-3 md:mx-auto md:w-12 md:h-12 gap-3 px-4 py-3"
