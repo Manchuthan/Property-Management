@@ -33,6 +33,7 @@
     "client/**/*",
     "server/**/*",
     "shared/**/*",
+    "api/**/*",
     "scripts/**/*.ts",
     "vite.config.ts",
     "vite.config.server.ts"
